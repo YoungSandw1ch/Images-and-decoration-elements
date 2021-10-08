@@ -1,0 +1,54 @@
+// ----------------------------------------Fonts-------------------------------------------
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@400;700&display=swap');
+// ----------------------------------------Nullstyle---------------------------------------
+@import '_Nullstyle';
+
+$bgc1: #425062;
+$bgc2: #F5F5F5;
+$font1: Roboto;
+$font2: 'Open Sans';
+
+$maxWidth: 1280;
+@mixin adaptiv-font($pcSize, $mobSize) {
+	$addSize: $pcSize - $mobSize;
+	$maxWidth: $maxWidth - 320;
+	font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+html,body{
+	font-family: $font1;
+	height: 100%;
+	color: snow;
+	font-size: 14px;
+	background-color: #383838;
+}
+
+.wrapper {
+}
+
+.content {
+	padding: 30px;
+}
+
+.header {
+	padding: 30px;
+	background-color: #1b1b1b;
+}
+h1{
+	font-weight: 900;
+	// font-size: 50px;
+	@include adaptiv-font(50,25);
+}
+h2{
+	// font-size: 40px;
+	font-weight: 900;
+	margin-bottom: 20px;
+	@include adaptiv-font(40,22);
+}
+p{
+	@include adaptiv-font(22,18);
+}
+p:not(:last-child){
+	margin-bottom: 10px;
+}
